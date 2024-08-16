@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="career-explorer.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Explore STEM Careers</h1>
+            <div>
+                <label for="career-path-select">Career Path:</label>
+                <select id="career-path-select" onchange="showCategories()">
+                    <option value="">Select a Career Path</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+            </div>
+            <div>
+                <label for="career-category-select">Career:</label>
+                <select id="career-category-select" onchange="showCareers()">
+                    <option value="">Select a Career</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div id="career-info">
+                <h2><span id="career-name"></span></h2>
+                <img id="career-image" src="" alt="Career Image" style="display: none;">
+                <p id="career-description"></p>
+            </div>
+        </div>
+    </div>
+<script src="career-explorer.js"></script>
+<script src="stem-careers.js"></script>
+</body>
+</html>
