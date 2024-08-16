@@ -1,4 +1,40 @@
-<link rel="stylesheet" href="career-explorer.css">
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Explorer</title>
+    <link rel="stylesheet" href="career-explorer.css">
+    <style>
+        .tab {
+            display: inline-block;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            margin-right: -1px;
+        }
+
+        .tab.active {
+            background-color: #ccc;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px;
+            border: 0px solid #ccc;
+            border-top: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -20,14 +56,55 @@
             </div>
         </div>
         <div class="right-panel">
-            <div id="career-info">
+            <div id="career-info"  style="display: none;">
                 <h2><span id="career-name"></span></h2>
-                <img id="career-image" src="" alt="Career Image" style="display: none;">
-                <p id="career-description"></p>
+                <img id="career-image" src="" alt="Career Image">
+                <div>
+                    <div class="tab" onclick="showTab('english')">English</div>
+                    <div class="tab" onclick="showTab('sinhala')">Sinhala</div>
+                    <div class="tab" onclick="showTab('tamil')">Tamil</div>
+                </div>
+            
+                <div id="english" class="tab-content">
+                    <p id="career-description">English description here.</p>
+                </div>
+                <div id="sinhala" class="tab-content">
+                    <p id="career-description-sinhala">Sinhala description here.</p>
+                </div>
+                <div id="tamil" class="tab-content">
+                    <p id="career-description-tamil">Tamil description here.</p>
+                </div>
             </div>
         </div>
     </div>
 <script src="career-explorer.js"></script>
 <script src="stem-careers.js"></script>
+
+<script>
+    function showTab(tabId) {
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            if (tab.textContent.toLowerCase() === tabId) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+
+        contents.forEach(content => {
+            if (content.id === tabId) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+    }
+
+
+    // Show the English tab by default
+    showTab('english');
+</script>
 </body>
 </html>

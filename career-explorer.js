@@ -29,8 +29,9 @@ function showCareers() {
         const selectedCareer = careerData[selectedPathIndex]['career-list'][selectedCareerIndex];
         document.getElementById('career-name').textContent = selectedCareer['career'];
         document.getElementById('career-description').textContent = selectedCareer['description'];
-        const careerImage = document.getElementById('career-image');
-        careerImage.src = selectedCareer['image'];
-        careerImage.style.display = 'block';
+        document.getElementById('career-description-sinhala').textContent = selectedCareer['description-sinhala'];
+        document.getElementById('career-description-tamil').textContent = selectedCareer['description-tamil'];
+        document.getElementById('career-image').src = selectedCareer['image'];
+        document.getElementById('career-info').style.display = 'block';
     }
 }
